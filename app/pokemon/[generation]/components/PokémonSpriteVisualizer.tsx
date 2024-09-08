@@ -11,7 +11,7 @@ export default function PokémonSpriteVisualizer({
   const [isShiny, setIsShiny] = useState(false);
 
   const handleToggle = () => {
-    setIsShiny(!isShiny);
+    setIsShiny((prevState) => !prevState);
   };
 
   return (
