@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 
 export default function PokémonSpriteVisualizer({
@@ -22,17 +22,16 @@ export default function PokémonSpriteVisualizer({
           isShiny ? "Press to change it back!" : "Press to make it shiny!"
         }
       >
-        <Image
+        {/* eslint-disable @next/next/no-img-element */}
+        <img
           src={isShiny ? params.shiny : params.default}
           alt={params.alt}
           onClick={handleToggle}
           aria-label={`Front Sprite of ${params.alt}`}
           width={100}
           height={100}
-          quality={100}
-          priority={true}
           className="cursor-pointer"
-        ></Image>
+        ></img>
       </div>
     </>
   );
