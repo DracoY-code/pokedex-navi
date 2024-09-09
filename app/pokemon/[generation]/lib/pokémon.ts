@@ -40,49 +40,6 @@ export async function fetchPokémonDetails(id: number): Promise<Pokémon> {
   }
 }
 
-// Function to generate the list with Pokémon details for the selected generation
-export async function generatePokémonList(
-  generation: number = 1
-): Promise<Pokémon[]> {
-  // Mapping for the number of Pokémon in each generation
-  const generationalMapping: Record<number, { limit: number; offset: number }> =
-    {
-      1: { limit: 151, offset: 0 },
-      2: { limit: 100, offset: 151 },
-      3: { limit: 135, offset: 251 },
-      4: { limit: 107, offset: 386 },
-      5: { limit: 156, offset: 493 },
-      6: { limit: 72, offset: 649 },
-      7: { limit: 88, offset: 721 },
-      8: { limit: 96, offset: 809 },
-      9: { limit: 120, offset: 905 },
-    };
-
-  // Fetch the list of Pokémon for the selected generation
-  const listResponse = await fetchPokémonList(
-    generationalMapping[generation].limit,
-    generationalMapping[generation].offset
-  );
-
-  return Promise.all(
-    // Fetch the details for each Pokémon in that generation
-    listResponse.results.map(async (result) => {
-      // Extracting the ID from the URL
-      const urlPaths = result.url.split("/");
-      const id = Number(urlPaths[urlPaths.length - 2]);
-
-      // Handle invalid ID
-      if (isNaN(id)) {
-        console.error(`Pokémon ID (${id}) not found`);
-        return notFound();
-      }
-
-      // Fetch the Pokémon details with the ID
-      return fetchPokémonDetails(id);
-    })
-  );
-}
-
 // Function to fetch details for the Pokémon abilities
 export async function fetchPokémonAbilities(
   id: number
