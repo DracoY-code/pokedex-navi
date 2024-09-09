@@ -3,6 +3,7 @@ import GenerationTabList from "./components/GenerationTabList";
 import PokémonLister from "./components/PokémonLister";
 import { Pokémon } from "./lib/interfaces";
 import { fetchPokémonDetails, fetchPokémonList } from "./lib/pokémon";
+import { validateGeneration } from "./lib/utils";
 
 // Function to generate static paths for each generation
 export async function generateStaticParams() {
@@ -16,13 +17,8 @@ export default async function PokémonListPage({
 }: {
   params: { generation: string };
 }) {
-  // Get the generation from the URL parameters
-  const generation = Number(params.generation);
-
-  // Handle invalid generation values (should be 1-9)
-  if (isNaN(generation) || generation < 1 || generation > 9) {
-    return notFound();
-  }
+  // Validate the generation from the URL parameters
+  const generation = validateGeneration(params.generation);
 
   // Mapping for the number of Pokémon in each generation
   const generationalMapping: Record<number, { limit: number; offset: number }> =

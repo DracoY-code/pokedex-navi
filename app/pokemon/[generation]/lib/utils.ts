@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 // Function to change the string to title case
 export function toTitleCase(str: string, separator: string = " "): string {
   return str
@@ -25,4 +27,17 @@ export function toRomanNumeral(n: number): string {
     9: "IX",
   };
   return numberToRomanMapper[n];
+}
+
+// Function to validate the generation string from the URL
+export function validateGeneration(generationIndex: string): number {
+  // Get the generation from the URL parameters
+  const generation = Number(generationIndex);
+
+  // Handle invalid generation values (should be 1-9)
+  if (isNaN(generation) || generation < 1 || generation > 9) {
+    return notFound();
+  }
+
+  return generation;
 }
