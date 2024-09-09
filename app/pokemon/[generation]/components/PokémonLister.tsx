@@ -20,11 +20,11 @@ export default function PokémonLister({
           >
             <tr>
               <th>Index</th>
+              <th>Cries</th>
               <th>Sprite</th>
               <th>Name</th>
               <th>Types</th>
               <th>Abilities</th>
-              <th>Cries</th>
               <th>Height</th>
               <th>Weight</th>
               <th>Base Stat Total (BST)</th>
@@ -34,6 +34,11 @@ export default function PokémonLister({
             {params.pokémonList.map((pokémon) => (
               <tr key={pokémon.id}>
                 <td>#{pokémon.id.toString().padStart(4, "0")}</td>
+                <td>
+                  <PokémonCryPlayer
+                    params={{ cries: pokémon.cries, name: pokémon.name }}
+                  />
+                </td>
                 <td>
                   <PokémonSpriteVisualizer
                     params={{
@@ -50,11 +55,6 @@ export default function PokémonLister({
                 <td>
                   <PokémonAbilityLister
                     params={{ abilities: pokémon.abilities }}
-                  />
-                </td>
-                <td>
-                  <PokémonCryPlayer
-                    params={{ cries: pokémon.cries, name: pokémon.name }}
                   />
                 </td>
                 <td>{pokémon.height / 10} m</td>
