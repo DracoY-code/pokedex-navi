@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useState } from "react";
@@ -8,7 +7,7 @@ export default function PokémonSpriteVisualizer({
 }: {
   params: { default: string; shiny: string; alt: string };
 }) {
-  const [isShiny, setIsShiny] = useState(false);
+  const [isShiny, setIsShiny] = useState<boolean>(false);
 
   const handleToggle = () => {
     setIsShiny((prevState) => !prevState);
