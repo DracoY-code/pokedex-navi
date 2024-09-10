@@ -13,11 +13,19 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: var(--text-color);
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+[data-theme="light"] {
+  --text-color: "#000000";
+}
+
+[data-theme="dark"] {
+  --text-color: "#ffffff";
 }
