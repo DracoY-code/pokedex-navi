@@ -1,4 +1,4 @@
-# Pokédex-Navi(gator)
+# PokédexNavi
 
 This is a web application designed to simplify Pokémon information lookups with a clean and intuitive UI. Users can easily browse Pokémon details, including abilities, stats, and types across different generations. The application provides a seamless and interactive experience for what is essentially a Pokédex.
 
