@@ -14,15 +14,12 @@ export default function PokémonLister({
     <>
       <div>
         <table className="table text-center w-full">
-          <thead
-            className={`drop-shadow-md dark:text-white
-              bg-gray-200 dark:bg-gray-600 sticky top-8 z-10`}
-          >
+          <thead className="drop-shadow bg-base-500 z-10">
             <tr>
               <th>Index</th>
-              <th>Cries</th>
               <th>Sprite</th>
               <th>Name</th>
+              <th>Cries</th>
               <th>Types</th>
               <th>Abilities</th>
               <th>Height</th>
@@ -30,15 +27,10 @@ export default function PokémonLister({
               <th>Base Stat Total (BST)</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-sm lg:text-base">
             {params.pokémonList.map((pokémon) => (
               <tr key={pokémon.id}>
                 <td>#{pokémon.id.toString().padStart(4, "0")}</td>
-                <td>
-                  <PokémonCryPlayer
-                    params={{ cries: pokémon.cries, name: pokémon.name }}
-                  />
-                </td>
                 <td>
                   <PokémonSpriteVisualizer
                     params={{
@@ -49,6 +41,11 @@ export default function PokémonLister({
                   />
                 </td>
                 <td>{toTitleCase(pokémon.name, "-")}</td>
+                <td>
+                  <PokémonCryPlayer
+                    params={{ cries: pokémon.cries, name: pokémon.name }}
+                  />
+                </td>
                 <td>
                   <PokémonTypeBadges params={{ types: pokémon.types }} />
                 </td>
