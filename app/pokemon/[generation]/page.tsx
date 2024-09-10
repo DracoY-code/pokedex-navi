@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import GenerationTabList from "./components/GenerationTabList";
+import NavigationBar from "../../components/NavigationBar";
 import PokémonLister from "./components/PokémonLister";
 import { Pokémon } from "./lib/interfaces";
 import { fetchPokémonDetails, fetchPokémonList } from "./lib/pokémon";
@@ -58,7 +58,7 @@ export default async function PokémonListPage({
 
   return (
     <main>
-      <GenerationTabList params={{ generation }} />
+      <NavigationBar />
       <PokémonLister params={{ pokémonList }} />
     </main>
   );
