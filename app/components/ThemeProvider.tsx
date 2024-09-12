@@ -27,9 +27,8 @@ export default function ThemeProvider({
       ? "dark"
       : "light";
 
-    // Set and apply the initial theme
+    // Set the initial theme
     setTheme(initialTheme);
-    document.documentElement.setAttribute("data-theme", initialTheme);
 
     // Function to change the theme
     const handleThemeChange = () => {
@@ -37,6 +36,7 @@ export default function ThemeProvider({
         ? "dark"
         : "light";
       setTheme(newTheme);
+      localStorage.setItem("theme", newTheme);
     };
 
     // Listen for theme changes
@@ -54,13 +54,13 @@ export default function ThemeProvider({
 
   // Handle the theme on changes
   useEffect(() => {
-    localStorage.setItem("theme", theme);
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
   // Handler to change the theme
-  const changeTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  const changeTheme = (nextTheme?: string) => {
+    setTheme(nextTheme ?? "light");
+    localStorage.setItem("theme", nextTheme ?? "light");
   };
 
   return (
