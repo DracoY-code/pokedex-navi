@@ -9,6 +9,33 @@ export function toTitleCase(str: string, separator: string = " "): string {
     .join(" ");
 }
 
+// Function to format the id to "#----"
+export function formatId(id: number): string {
+  return `#${id.toString().padStart(4, "0")}`;
+}
+
+// Function to format the height values
+export function formatHeight(height: number): string {
+  return `${height / 10} m`;
+}
+
+// Function to format the weight values
+export function formatWeight(weight: number): string {
+  return `${weight / 10} kg`;
+}
+
+// Function to apply the color to the stat based on thresholds:
+// - Red (0 - 60)
+// - Blue (61 - 100)
+// - Green (101 and above)
+export function applyStatColor(stat: number): string {
+  return stat <= 60
+    ? "text-red-600"
+    : stat <= 100
+    ? "text-blue-600"
+    : "text-green-600";
+}
+
 /**
  * Function to convert a number to its Roman numeral representation.
  * @param n The number of the Pokémon generation (1-9).
