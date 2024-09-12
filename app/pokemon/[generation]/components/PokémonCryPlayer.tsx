@@ -24,9 +24,8 @@ export default function PokémonCryPlayer({
   return (
     <>
       <button
+        className="btn btn-circle"
         onClick={playAudio}
-        className="md:tooltip md:tooltip-bottom"
-        data-tip="Press to hear the cry!"
         aria-label={`Play the cry of ${params.name}`}
       >
         <PlayArrowIcon />

@@ -7,12 +7,7 @@ function addHiddenAbilityTag(
   isHidden: boolean
 ): JSX.Element {
   return isHidden ? (
-    <span
-      className="underline tooltip tooltip-bottom cursor-pointer"
-      data-tip="This is a hidden ability!"
-    >
-      {abilityName}
-    </span>
+    <span className="underline cursor-pointer">{abilityName}</span>
   ) : (
     <>{abilityName}</>
   );

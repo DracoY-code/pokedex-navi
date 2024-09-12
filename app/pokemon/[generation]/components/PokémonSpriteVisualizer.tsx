@@ -2,10 +2,18 @@
 
 import { useState } from "react";
 
+interface PokémonSpriteProps {
+  default: string;
+  shiny: string;
+  alt: string;
+  width?: number;
+  height?: number;
+}
+
 export default function PokémonSpriteVisualizer({
   params,
 }: {
-  params: { default: string; shiny: string; alt: string };
+  params: PokémonSpriteProps;
 }) {
   const [isShiny, setIsShiny] = useState<boolean>(false);
 
@@ -15,23 +23,18 @@ export default function PokémonSpriteVisualizer({
 
   return (
     <>
-      <div
-        className="md:tooltip md:tooltip-bottom"
-        data-tip={
-          isShiny ? "Press to change it back!" : "Press to make it shiny!"
-        }
-      >
-        {/* eslint-disable @next/next/no-img-element */}
+      {/* eslint-disable @next/next/no-img-element */}
+      <figure>
         <img
           src={isShiny ? params.shiny : params.default}
           alt={params.alt}
           onClick={handleToggle}
           aria-label={`Front Sprite of ${params.alt}`}
-          width={100}
-          height={100}
+          width={params.width ?? 100}
+          height={params.height ?? 100}
           className="cursor-pointer"
         ></img>
-      </div>
+      </figure>
     </>
   );
 }
