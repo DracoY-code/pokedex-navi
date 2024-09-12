@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
 import NavigationBar from "../../components/NavigationBar";
-import PokémonLister from "./components/PokémonLister";
 import { Pokémon } from "./lib/interfaces";
 import { fetchPokémonDetails, fetchPokémonList } from "./lib/pokémon";
 import { validateGeneration } from "./lib/utils";
+import PokémonCard from "./components/PokémonCard";
+import LinearFooter from "@/app/components/LinearFooter";
 
 // Function to generate static paths for each generation
 export async function generateStaticParams() {
@@ -59,7 +60,12 @@ export default async function PokémonListPage({
   return (
     <main>
       <NavigationBar />
-      <PokémonLister params={{ pokémonList }} />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+        {pokémonList.map((pokémon) => (
+          <PokémonCard key={pokémon.id} params={{ pokémon }} />
+        ))}
+      </div>
+      <LinearFooter />
     </main>
   );
 }
