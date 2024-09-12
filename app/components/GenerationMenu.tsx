@@ -67,6 +67,7 @@ export default function GenerationMenu() {
         >
           <label className="swap swap-rotate">
             <input
+              name="generation-menu"
               type="checkbox"
               checked={isDropdownOpen}
               onChange={handleToggle}

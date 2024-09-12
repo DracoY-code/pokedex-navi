@@ -19,6 +19,7 @@ export default function ThemeToggle() {
       <div className="flex justify-center text-center pl-5">
         <label className="btn btn-circle btn-ghost swap swap-rotate">
           <input
+            name="theme-toggle"
             type="checkbox"
             checked={theme === "dark"}
             onChange={handleThemeToggle}
