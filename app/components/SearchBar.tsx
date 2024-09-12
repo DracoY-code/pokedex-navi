@@ -35,20 +35,16 @@ export default function SearchBar() {
         ) as HTMLInputElement;
 
         // Focus on the search input form
-        if (searchInput) {
-          searchInput.focus();
-          setIsFocused(true);
-        }
-      } else if (event.key === "Escape") {
+        searchInput?.focus();
+        setIsFocused(true);
+      } else if (event.key === "Escape" && isFocused) {
         const searchInput = document.querySelector(
-          'input[name="search"]'
+          "input[name='search']"
         ) as HTMLInputElement;
 
         // Unfocus from the search input form
-        if (searchInput && isFocused) {
-          searchInput.blur();
-          setIsFocused(false);
-        }
+        searchInput?.blur();
+        setIsFocused(false);
       }
     };
 
@@ -63,7 +59,14 @@ export default function SearchBar() {
 
   return (
     <>
-      <div className="flex items-center gap-2 relative">
+      {/* Search Icon (Small Screen) */}
+      <div className="flex justify-center text-center pl-5 sm:hidden">
+        <button className="btn btn-circle btn-ghost opacity-100">
+          <SearchIcon />
+        </button>
+      </div>
+
+      <div className="items-center gap-2 relative hidden sm:flex">
         {/* Search Icon */}
         <span className="absolute left-2 opacity-100">
           <SearchIcon />
@@ -78,8 +81,8 @@ export default function SearchBar() {
             spellCheck="true"
             placeholder="Search..."
             aria-label="Search bar here"
-            className={`input input-md input-bordered text-sm pl-10 w-42 h-10
-              md:w-[18rem] placeholder:opacity-100`}
+            className={`input input-md input-bordered text-sm pl-10 h-10
+              w-42 placeholder:opacity-100`}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
           />
