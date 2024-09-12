@@ -35,18 +35,20 @@ export default function PokémonTypeBadges({
 }) {
   return (
     <>
-      {params.types.map((type, index) => (
-        <span
-          key={index}
-          className={`badge text-xs drop-shadow
+      <div className="flex space-x-1">
+        {params.types.map((type, index) => (
+          <span
+            key={index}
+            className={`badge text-xs drop-shadow
             ${getTypeColorClass(type.type.name)}
             transition-opacity duration-300
             opacity-100 hover:opacity-90
             text-white font-medium cursor-pointer`}
-        >
-          {toTitleCase(type.type.name)}
-        </span>
-      ))}
+          >
+            {toTitleCase(type.type.name)}
+          </span>
+        ))}
+      </div>
     </>
   );
 }
