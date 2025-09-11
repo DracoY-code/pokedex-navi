@@ -1,18 +1,18 @@
 # PokédexNavi
 
-This is a web application designed to simplify Pokémon information lookups with a clean and intuitive UI. Users can easily browse Pokémon details, including abilities, stats, and types across different generations. The application provides a seamless and interactive experience for what is essentially a Pokédex.
+PokédexNavi is a web application that makes looking up Pokémon information quick and easy, with a clean and intuitive UI. Users can browse details like abilities, stats, and types across different generations, enjoying a smooth and interactive Pokédex experience.
 
 ## Motivations and Outcomes
 
-This project serves as an evolution of skills that I have amassed while learning about web design and web development. Through this project, I was able to learn various web developement concepts such as:
+This project was a way to put my web development skills into practice while creating something fun and useful. Along the way, I got hands-on experience with:
 
 - Client-Side Rendering (CSR)
 - Static Site Generation (SSG)
 - Server-Side Rendering (SSR)
 - Cross-Origin Resource Sharing (CORS)
-- Data Fetching through an API ([PokeAPI](https://pokeapi.co/) in this case)
-- The [Next.js](https://nextjs.org/) Project Structure
+- Fetching data from APIs ([PokeAPI](https://pokeapi.co/))
+- Understanding the [Next.js](https://nextjs.org/) project structure
 
 ## Future Plans
 
-I would like to improve and expand this website, so that it can provide an intuitive and comprehensive experience for the Pokémon information lookup process. Since getting the information from the current Pokémon databases can be tedious, I would like this to be an alternative for the same.
+I plan to keep improving and expanding the site to make it an even more intuitive and comprehensive resource for Pokémon information. Since finding data in current databases can sometimes be tedious, I hope this can serve as a smoother alternative for Pokémon fans.
